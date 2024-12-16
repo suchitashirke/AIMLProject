@@ -1,4 +1,4 @@
-What Drives the Price of a Car?
+**What Drives the Price of a Car?**
 
 As per our objective of identifying the key drivers that influence used car prices.
 We need to understand how each of the factors will help provide insights for setting competitive prices and optimizing inventory management
