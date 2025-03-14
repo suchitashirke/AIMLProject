@@ -1,180 +1,180 @@
-## Overview:
-In this practical application, your goal is to compare the performance of the classifiers we encountered in this section, namely K Nearest Neighbor, Logistic Regression, Decision Trees, and Support Vector Machines. We will utilize a dataset related to marketing bank products over the telephone.
+### Project Title
+**Fraud Detection for Shell Companies in Line of Credit Applications**
 
-### Business Objective of the Task
-The goal is to develop a data-driven predictive model that can identify clients/customers most likely to subscribe to the bank’s long-term deposit product, based on demographic, behavioral, and economic context attributes. By doing so, the bank aims to achieve the following objectives:
-- Improve campaign effectiveness by increasing the subscription success rate while reducing unnecessary customer contacts.
-- Reduce operational overhead by focusing resources on high-probability clients.
-- Optimize marketing strategies by leveraging insights from data to design campaigns for maximum conversions.
-- Increase revenue growth through higher adoption of the long-term deposit product.
+### Rationale
+***Brand Impact:***
+If we fail to address shell company fraud, it could lead to significant financial losses, 
+damaged relationships with legitimate SMB clients, and reputational harm. 
+Fraudulent entities not only drain resources but also erode the trust that legitimate businesses place in our credit services.
 
-### Data Used:
-Our dataset comes from the UCI Machine Learning repository link. The data is from a Portugese banking institution and is a collection of the results of multiple marketing campaigns. We will make use of the article accompanying the dataset here for more information on the data and features.
-Understanding the Data: How many marketing campaigns does this data represent?
+***Business Impact:***
+This analysis provides actionable intelligence to strengthen fraud prevention mechanisms. By accurately identifying potential shell companies, 
+we can:
+1. Protect the company’s financial health by minimizing defaulted loans.
+2. Enhance customer trust and retention by focusing resources on serving legitimate SMBs.
+3. Optimize manual review efforts by automating initial risk assessments, saving time and reducing operational costs.
+   
+***Overall Importance:***
+Shell company fraud undermines the integrity of financial systems. 
+Detecting and preventing it contributes to a fairer and more sustainable credit market for SMBs, allowing genuine businesses to thrive. 
+This aligns with our mission to empower SMBs while safeguarding the company and the broader economy from fraudulent activities.
+
+#### Research Question
+***How can we create a predictive model to identify and prevent shell company fraud in SMB line-of-credit applications, reducing credit losses and mitigating fraud-related risks***
+
+#### Data Sources
+Data sources: https://www.kaggle.com/code/kevinm6720/sba-loan-approval-analysis#Data-Exploration Links to an external site., some of the data need to synthetically generate as well as pulled from my organizations test environment.
+
+#### Methodology
+1.	***Unsupervised Learning techniques*** like **Clustering** can be used for identifying patterns and anomalies and uncover potential fraudulent behavior in data related to shell company fraud. We can group similar applications or companies together in a cluster using **K-mean** to segment companies on characteristics such as revenue, credit amount requested, or age. Outliers can be flagged for further investigation. We can also create cluster for legitimate businesses while flagging shell companies as outliers.
+2.	We can use ***PCA technique for dimensionality reduction*** considering various data aspect we have identified. This makes it easier to visualize patterns, identify clusters of potential shell companies, and enhance the performance of subsequent predictive models. PCA acts as a preprocessing step that can significantly improve the detection of fraudulent activities in credit applications. We can use PCA results as input feature for predictive models below.
+3.	We can use ***Classification model like Logistic Regression, Decision Tree, SVM, K-Nearest Neighbor***. 
+
+#### Results
+For the Base Model has been document below
+
+#### Next steps
+For base Model next steps has been document below
+
+#### Outline of project
+Outline 1
+Outline 2
+Outline 3
+
+#### Overview
+Our company provides credit programs aimed at assisting small and medium-sized businesses (SMBs) in managing their cash flow through lines of credit. This service enables businesses to pay their bills even when immediate funds are unavailable, offering them flexibility and convenience.
+Typically, businesses are assessed based on their financial health, cash flow, and payment history to determine eligibility and credit limits. Once approved, they can use this credit to pay vendors directly through our platform, with repayment terms that are usually flexible. Through our line of credit offerings, we help SMBs streamline their financial operations.
+However, lines of credit can be vulnerable to various types of fraud, particularly "Shell Company Fraud." This fraudulent scheme involves creating fictitious businesses or utilizing real businesses with minimal operations to secure credit or loans without any intention of repayment. We aim to implement a scoring mechanism to detect potential shell company fraud in these applications.
+
+### Data Set details: 
+https://www.kaggle.com/code/kevinm6720/sba-loan-approval-analysis#Data-Exploration Links to an external site. And generated some of the columns utilizing the existing from the table. We have renamed some of the columns for better readability.
 
 ### Input variables:
 
-**Bank client data:** 
-1.	Age : Age of the lead (numeric)
-2.	Job : type of job (Categorical)
-3.	Marital : Marital status (Categorical)
-4.	Education : Educational Qualification of the lead (Categorical)
-5.	Default: Does the lead has any default(unpaid)credit (Categorical)
-6.	Housing: Does the lead has any housing loan? (Categorical)
-7.	loan: Does the lead has any personal loan? (Categorical)
+***Compay Information:***
+-	LoanNr_ChkDgt: Identifier – Primary key
+-	Name: Borrower name
+-	City: Borrower City
+-	State: Borrower State
+-	Zip: Borrower zip code - INT
+-	Bank: Bank name
+-	BankState: Bank state
+-	NAICS (Categorial): North American industry classification system code 
+-	ApprovalDate: Date SBA commitment issued - INT
+-	ApprovalFY: Fiscal year of commitment - INT
+-	Term: Loan term in months - INT
+-	NoEmp: Number of business employees - INT
+-	New Exist: 1 = Existing business, 2 = New business - INT
+-	CreateJob: Number of jobs created - INT
+-	RetainedJob: Number of jobs retained - INT
+-	FranchiseCode: Franchise code, (00000 or 00001) = No franchise- INT
+-	UrbanRural (Categorial): 1 = Urban, 2 = rural, 0 = undefined -
+-	Sector_Code:  Description of the first two digits of NAICS - INT
 
-**Related with the last contact of the current campaign:**
-1.	Contact: Contact communication type (Categorical)
-2.	Month: last contact month of year (Categorical)
-3.	day_of_week: last contact day of the week (categorical)
-4.	duration: last contact duration, in seconds (numeric).
+***Application Characteristics:***
+-	DisbursementDate: Disbursement date - OBJECT
+-	DisbursementGross: Amount disbursed/Requested - FLOAT
+-	BalanceGross: Gross amount outstanding - FLOAT
+-	RevLineCr (Categorial): Revolving line of credit: Y D Yes, N D No
+-	LowDoc (Categorial): LowDoc Loan Program: Y D Yes, N D No
+-	loan_backed_realestate (Categorial): = 1 if loan is BACKED by real estate, = 0 NOT BACKED
+-	purpose of credit (Categorial): Usage of Credit Amount
+-	RevLineCr (Categorial): Revolving line of credit: Y = Yes, N = No
 
-**Other attributes:**
-1.	campaign: number of contacts performed during this campaign and for this client (numeric)
-2.	pdays: number of days that passed by after the client was last contacted from a previous campaign(numeric; 999 means client was not previously contacted))
-3.	previous: number of contacts performed before this campaign and for this client (numeric)
-4.	poutcome: outcome of the previous marketing campaign (categorical)
+***Financial Data:*** 
+-	Annual Revenue: Annual Revenue of Borrower- FLOAT
+-	Net Income: Net Income of Borrower - FLOAT
 
-**Social and economic context attributes**
-1.	emp.var.rate: employment variation rate - quarterly indicator (numeric)
-2.	cons.price.idx: consumer price index - monthly indicator (numeric)
-3.	cons.conf.idx: consumer confidence index - monthly indicator (numeric)
-4.	euribor3m: euribor 3 month rate - daily indicator (numeric)
-5.	nr.employed: number of employees - quarterly indicator (numeric)
+***Behavior data:***
+-	NumOfapplications – Num of credit applications - INT
+-	Frequence_of_apps (Categorial)– Frequency of applications -HIGH, LOW
+-	payment_consistency (Categorial) – Repayments – Regular, Periodic, Sporadic, NONE
 
-### Output variable (desired target):
+***External Data Source:***
+-	Credit Utilizations (Categorial): Credit Utilizations done by Borrower- HIGH, LOW, NO DATA 
+-	Late Payments (Categorial): Late Payments by Borrower – YES or NO
+-	Taxed_filed (Categorial): Taxed Filed for the Company by Borrower - YES, NO, PENDING, LATE, EXEMPT
+-	Business license State (Categorial): Business license Status - EXPIRED, RENEWAL DUE, UNDER AUDIT, NOT REQUIRED, YES, NO
+-	Outstanding loans: Number of Outstanding loans INT
 
-1.	y - has the client subscribed a term deposit? (binary: 'yes','no')
+***Historical data:***
+-	Fraud Trend Over time for industry (Categorial) – STABLE, UNSTABLE
+-	Fraud incident (Categorial) – YES or NO
+
+***Output variable (desired target):***
+1.	Fraud/Shell company Fraud (Categorial) – ***PIF (PAID IN FULL) or CHGOFF (CHARGED OFF)***
+
 
 ### The dataset collected is related to 17 campaigns that occurred between May 2008 and November 2010, corresponding to a total of 79354 contacts.
 
 ### Data Preprocessor and visualization:
 1.	Load the dataset from the file 
 2.	Check for the schema – column datatype and shape (columns and rows)
-3.	Check for NaN values in the dataset. This dataset has no null values
-4.	Identify duplicates rows in the dataset and remove those duplicated rows. DataSet had 12 duplicate rows
-5.	Create a new column (y_numeric) which has numerical values for binary data Yes= 1, No=0. Add it to data frame
-6.	Change categorical data housing, default, loan to Yes=1, No=0, unknown = -1
-7.	Drop columns cons.price.idx, cons.conf.idx after checking the correlation
-8.	Plot graphs for univariant and bivariant
-   
-    a.	Bar plot – Success rate by job, education , marital status
-    b.	Boxplot – Age vs Target, duration vs Target
-    c.	Histogram – campaign calls distributions
-    d.	Hist – Previous contact distributions
-         ![image](https://github.com/user-attachments/assets/dca01c0d-9ad9-4b56-a4a3-9be64df0e774)
+3.	Check for NaN values in the dataset. Used bar graph to see which has highest NULL values.
+4.	Identify duplicates rows in the dataset and remove those duplicated rows. 
+5.	Create a new column (Fraud/Shell company Fraud) which has categorical (PIF and CHGOFF), Changed those value to for binary data PIF= 0, CHGOFF=1.  Add it to data frame
+6.	Used numeric features to identify the ***correlation matrix***
+7.	Identified ***unique values*** for the categorical data
+8.	Dropped columns – ***LoanNr_ChkDgt','ChgOffDate','ApprovalDate','ApprovalFY','DisbursementDate', 'Fraud Trend Over Time, Name, City, Bank, BalanceGross, ChgOffPrinGr, GrAppv, Sector_code, Frequence_of_apps due to same value for all record, post application values, duplicate column***
+        ![image](https://github.com/user-attachments/assets/fb418917-6e55-4307-91a6-00f1d87f1fd8)
+9.	**Plot graphs for univariant and bivariant**
+      a.	Histogram (understand Distributions)– Annual Revenue, Term, DisbursementGross(Credit Requested)
+  	      ![image](https://github.com/user-attachments/assets/335b758a-106b-4b09-a818-3da089f6751c)
 
-  	g.	Correlation heatmap
-        ![image](https://github.com/user-attachments/assets/27795839-92f2-438d-87bd-d57fd238f610)
-  	    ***Insights from HeatMap***
-  	    1. The indicators have correlation among themselves.
-  	  	2. Number of employees rate is highly correlated with employee variation rate.
-  	  	3. Consumer price index is highly correlated with bank interest rate( higher the price index, higher the interest rate).
-  	  	4. Employee variation rate also correlates with the bank interest rates
+      b.	BoxPlot (Identify the outliers) – Credit Score, NoEmp, DisbursmentGross (Credit Requested), NumofApplications, Annual Revenue, Net Income, CreateJob, RetainedJob
+  	      ![image](https://github.com/user-attachments/assets/f4838bfe-c658-46d2-bbdd-841dc1017dff)
 
-  	e.	Boxplot – duration vs job
-  	f.	Scatterplot – duration vs campaign
-        ![image](https://github.com/user-attachments/assets/36b5b8ad-55e7-47bd-8c67-b2c14277ebcd)
-  	    ***Insights from duration vs job:***
-  	    1. The leads who have not made a deposit have lesser duration on calls.
-  	    2. Comparing the average, the blue collar, entrepreneur have high duration in calls and student, retired have less duration in average.
-  	    3.  Large distribution of leads were from self employed clients and management people.
-  	
-  	   ***Insights from duration vs campaign:***
-  	    1. The more the duration the calls were, they had higher probability in making a deposit
-        2. Duration of calls faded as the time period of campaign extended further
-        3. There were many positive leads in the initial days of campaign
-10. Based on the correlation heatmap, we can remove/drop the columns like default, housing, loan as they 
+      c.	Barplot (to understand Frequency) – Payment Consistency, Purpose of credit, NAICS, State
+  	      ![image](https://github.com/user-attachments/assets/0fac2d64-9a27-4807-aed7-71c622999251)
+
+      d.	Pie Chart (To understand distribution) – RevLineCr, loan_backed_by_realEstate
+  	      ![image](https://github.com/user-attachments/assets/c78873d1-a50c-418b-8d3f-ea6c2515754b)
+
+      e.	Scatter plot (To understand distribution and relationship with target variable) – DisbursementGross (Credit Request) vs Annual Revenue, DisbursementGross (Credit Requested) vs NAICS, DisbursementGross (Credit Request) vs NoEmp,                DisbursementGross (Credit Request) vs Term along with Shell Company fraud
+  	      ![image](https://github.com/user-attachments/assets/5480acac-8cd7-4577-9f52-b99040f09a9e)
+
+      f.	Correlation heatmap
+         ![image](https://github.com/user-attachments/assets/c7edd6cf-27a7-4a95-95dc-e7021c910b47)
 
 ### Engineering Features
 
-1.	Apply ***OneHotEncoding***  to certain columns - 'job', 'marital', 'education', 'poutcome’, ‘contact’
-2.	***Remove outliers*** from age, campaign, duration column using IQR as some model like SVM are sensitive to outliers 
-3.	Convert the ***month and days_of_week*** column to integer using maps
-4.	***Pdays*** has many 999 values, we mapped those 0
+1. **Imputed** Missing **Annual Revenue, outstanding loans with Median Value**. Also imputed values for missing **Fraud/Shell company Fraud, BankState, RevLineCr, payment_consistency, NewExist, State** by using **Mode** ( Most frequent Values)
+2.	Applied **Binary Encoding to – FranchiseCode, loan_backed_realestate, lowDoc, Late Payment**
+3.	Applied **Frequency Encoding for Zipcode RevlineCr**
+4.	Applied **Ordinal Encoding for payment_consistency, Credit Utilizations, Tax_filed, Business License Status**
+5.	Applied **Target Encoding for State and BankState**
+6.	Applied **One Hot Encoding for NAICS and Purpose_of_credit**
+7.	Removed **Outliers** to reduce the noise using **IQR and log transformation** technique. This helped reduce the data size and removed outliers
+   	Credit Score, NoEmp, NumOfapplications, Annual_Revenue, Net_Income, Term
+8. Log transformation to **disbursementGross**
+
+### Unsupervised Model****
+Applied Unsupervised Learning like Clustering using K-Means.
+   ![image](https://github.com/user-attachments/assets/9d3bd776-debc-4755-ac48-c29ee4fca88e)
+   ![image](https://github.com/user-attachments/assets/02a2ea59-c364-4fb4-ad6b-8304eabebf50)
+   
+   a.	Fraud Distribution by Cluster: Cluster 0 - 8594.0 , Cluster 1 - 1871.0, Cluster - 2 - 303.0,  Cluster 3-  2397.0
+   b.	Financial and loan characteristics by cluster
+   ![image](https://github.com/user-attachments/assets/acdc7c77-3390-4409-ab7d-3d5de78f07a5)
 
 ### Train/Test Split: 
-Split the data into Train and test by using 70/30 combination. 70% - train data and 30% - test data and dropping the target variable from the data frame. We use all the columns int/float except the dropped ones
+Split the data into Train and test by using 80/20 combination. 80% - train data and 20% - test data and dropping the target variable from the data frame. We use all the columns int/float except the dropped ones
 
-### Model Metrics:
+### Model Metrics
+Ran Baseline model – DummyClassifier, SVC( baseline) 
+Ran Models like LogisticRegression, DecisionTreeClassifier, KNN, SVM 
 
-#### Model accuracy for logistics Regression with ensemble is – 94%
-
-![image](https://github.com/user-attachments/assets/d44782c6-fedd-4caa-9fe2-7bd2d630c298)
-
-#### Summary of Classification Model Performance
-
-![image](https://github.com/user-attachments/assets/2a861fe8-ad71-439e-892a-e6f479d9a3cf)
-
-![image](https://github.com/user-attachments/assets/0aaf01f2-b5fe-48a6-9134-7a71350fd054)
-
-![image](https://github.com/user-attachments/assets/a46aa1f5-0db5-4ad8-a850-2f8d89879150)
+![image](https://github.com/user-attachments/assets/d93c863c-f1f8-4510-8d8b-14bb4eaf6715)
 
 #### Key Observations
-1. **Baseline Performance:**
-   - The Dummy Classifier serves as a baseline with very low scores across all metrics, highlighting the benefit of using predictive models.
-2. **Logistic Regression:**
-   - Logistic Regression (Tuned) is one of the best models for this task, demonstrating consistently high accuracy, precision, and F1 scores on both training and testing sets.
-   - Performs well without significant overfitting.
-   - Offers strong interpretability.
-   - Maintains a good balance between training and test scores.
-3. **Tree-Based Models (Random Forest & Decision Tree):**
-   - **Random Forest (Tuned):** Shows strong metrics, particularly high precision and F1 score on the test set, indicating robustness and high-quality predictions. Suitable for precision-focused tasks.
-   - **Decision Trees (Default):** Underperform compared to the tuned Random Forest, suggesting that tuning and ensemble techniques are crucial for tree-based models. A significant gap between training and testing scores indicates overfitting.
-4. **SVM Models:**
-   - The tuned SVM shows excellent recall for both training and testing datasets, making it suitable for tasks where identifying all positive cases is a priority.
-   - Slight overfitting is evident, as training scores are higher than testing scores.
-   - The default SVM required tuning for better performance. While accuracy and recall are good, low precision indicates a high rate of false positives (e.g., customers identified as likely to subscribe but did not subscribe).
-   - Computationally intensive and time-consuming.
-5. **K-Nearest Neighbors (KNN):**
-   - Tuned KNN shows balanced performance but does not outperform Random Forest or SVM models, indicating limited suitability for this problem. It has higher precision but lower recall, indicating false negatives (e.g., customers identified as unlikely to subscribe but did subscribe).
-   - KNN (Default) shows lower test accuracy and F1 scores compared to other models, suggesting inferior performance.
-6. **Tuning Impact:**
-   - Tuning significantly improves the metrics across all models (e.g., Logistic Regression, SVM, Random Forest), emphasizing the importance of hyperparameter optimization.
-7. **Generalization:**
-   - Models like Logistic Regression and Random Forest generalize well, with small differences between training and testing scores, indicating stability.
+1. Decision Tree has the highest accuracy (87.8%) and F1-score (70.8%) on test data, but it may overfit (100% accuracy on training).
+2. Logistic Regression is well-balanced (79.7% accuracy, 51.6% precision, 30.1% F1-score).
+3. SVM (default settings) is failing (0 Precision, 0 Recall, 0 F1-score), likely due to class imbalance or poor hyperparameter choice.
 
-
-#### Model Performance Insights & Next Steps
-
-##### 1. Precision vs. Recall Trade-Off
-- **Random Forest:** Best for minimizing false positives, ideal when high precision is critical.
-- **SVM (Tuned):** Best for maximizing the identification of positive cases, ideal when high recall is important.
-
-##### 2. Balanced Models
-- **Logistic Regression** provides a robust balance between precision and recall, making it a reliable model for deployment without overfitting.
-
-##### 3. Specialized Use Cases
-- **Precision-focused tasks**: Use **Random Forest**.
-- **Recall-focused tasks**: Use **SVM** (tuned) for recall-critical tasks in specific marketing campaigns.
-
-#### Next Steps
-1. **Refine Model Performance:**
-   - Continue hyperparameter tuning to improve model accuracy.
-2. **Feature Engineering:**
-   - Identify and integrate additional features to enhance the model's predictive power.
-3. **Explore Model Ensembling:**
-   - Investigate stacking techniques to combine the strengths of multiple models.
-4. **Test Unseen Data:**
-   - Validate the models using new data to assess generalization.
-5. **Confusion Matrix Analysis:**
-   - Use confusion matrix analysis to understand the impact of false positives and false negatives on business outcomes.
-6. **A/B Testing:**
-   - Conduct A/B testing on model predictions to evaluate performance in real-world scenarios.
-7. **Feedback Loop:**
-   - Gather continuous feedback from campaign results to retrain and improve the model over time.
-  
-   
-#### Overall Recommendations
-##### Best Overall Model:
-- **Tuned Logistic Regression:** Provides the best balance between precision and recall, with a high F1 score ensuring optimal performance for both metrics. It is also interpretable, making it a strong choice for deployment.
-##### Precision-Focused Model:
-- **Random Forest (Tuned):** Focuses on targeting fewer, more likely customers. Ideal when minimizing false positives and maximizing precision is a priority.
-##### Recall-Focused Model:
-- **SVM (Tuned):** Ensures that the maximum number of potential customers are captured, even if it means some uninterested customers are included. Best when maximizing recall is crucial.
-
-**Integration with Marketing Automation:**  
-  The models, particularly the tuned Random Forest and SVM, should be integrated into the marketing automation system to perform real-time targeting of viable customers who are likely to subscribe.
-  We should continuously monitor model performance after deployment and track metrics such as precision, recall, and F1 score to ensure models are meeting campaign objectives. 
-  We should regularly update and adjust the models based on performance feedback and new data. Establish a continuous feedback loop to retrain the models using campaign results to refine predictions and improve customer targeting over time.
-
+### Next Step:
+1.	We might want to use Feature engineering to improve the data quality
+a.	Using Recursive Feature Elimination (RFE)
+b.	Feature Scaling 
+2.	Address the class imbalance especially for SVM models
+3.	Using Ensemble like Boosting for model selection and stacking
+4.	More hyperparameter tuning
