@@ -166,6 +166,8 @@ Ran Models like LogisticRegression, DecisionTreeClassifier, KNN, SVM
 
 ![image](https://github.com/user-attachments/assets/d93c863c-f1f8-4510-8d8b-14bb4eaf6715)
 
+![image](https://github.com/user-attachments/assets/35d168b8-221b-4a51-a45b-b010910ff7b0)
+
 #### Key Observations
 1. Decision Tree has the highest accuracy (87.8%) and F1-score (70.8%) on test data, but it may overfit (100% accuracy on training).
 2. Logistic Regression is well-balanced (79.7% accuracy, 51.6% precision, 30.1% F1-score).
