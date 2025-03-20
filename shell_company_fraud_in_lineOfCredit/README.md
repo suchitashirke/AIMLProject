@@ -177,7 +177,7 @@ https://www.kaggle.com/code/kevinm6720/sba-loan-approval-analysis#Data-Explorati
 
          Features highly correlated with each other might not add extra value in modeling.
 
-### Engineering Features
+### Features Engineering
 
 1. **Imputed** Missing **Annual Revenue, outstanding loans with Median Value**. Also imputed values for missing **Fraud/Shell company Fraud, BankState, RevLineCr, payment_consistency, NewExist, State** by using **Mode** ( Most frequent Values)
 2.	Applied **Binary Encoding to – FranchiseCode, loan_backed_realestate, lowDoc, Late Payment**
