@@ -247,7 +247,8 @@ Ran Models like LogisticRegression, DecisionTreeClassifier, KNN, SVM
    6.	Considering the execution **SVM is slowest of all 589 seconds**, making it impractical for real time line of credit application evaluation.
 
 **Plot for Overall Model(Tuned) Metrics***
-![image](https://github.com/user-attachments/assets/39df5684-82f7-46ed-9e27-9dfd20c2d75c)
+![image](https://github.com/user-attachments/assets/c466ee1e-e6a0-4979-a8bb-5460149875fd)
+
 
 **Plots for feature importance in logistic Regression and XGBoost**
 ![image](https://github.com/user-attachments/assets/ec450136-1666-400c-ae5d-cc596316a421)
