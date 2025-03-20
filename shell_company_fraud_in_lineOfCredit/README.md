@@ -39,7 +39,7 @@ This aligns with our mission to empower SMBs while safeguarding the company and 
 
 ### Data Set details: 
 
-https://www.kaggle.com/code/kevinm6720/sba-loan-approval-analysis#Data-Exploration Links to an external site. And generated some of the columns utilizing the existing from the table. We have renamed some of the columns for **better readability**. Like **MIS_Status was changed to  Fraud/Shell company Fraud** . **DisbursementGross (referred as Credit Requested)**. I have also use synthetic way to generate certain other columns which are normally used for decisioning in Credit line business. The notebook for generating these synthetic columns is also added.  **Ideal way is to integrate with vendors like Experian/TransUnion as well as LexisNexis who can provide this information.**
+https://www.kaggle.com/code/kevinm6720/sba-loan-approval-analysis#Data-Exploration Links to an external site. And generated some of the columns utilizing the existing from the table. We have renamed some of the columns for **better readability**. Like **MIS_Status was changed to  Fraud/Shell company Fraud** . **DisbursementGross (referred as Credit Requested)**. Some of data column data are synthetically generated which are normally used for decisioning in Credit line business. **Ideal way for getting these synthetically generated data is to integrate with Credit Bureau like Experian/TransUnion as well as LexisNexis who can provide this information.**
 
 ### Input variables:
 
