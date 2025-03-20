@@ -197,6 +197,23 @@ Applied Unsupervised Learning like Clustering using K-Means with **optimal K = 4
    ![image](https://github.com/user-attachments/assets/4021ac02-c2fc-424c-aadf-f7af6a67a8ce)
    ![image](https://github.com/user-attachments/assets/c7533ab7-f2d7-43a4-9bdd-f634602a3622)
 
+**Key Observation**
+
+Cluster 0 (Highest Fraud) 
+-   Low revenue (~$520K), low credit scores (599), short loan terms (63 months).
+**Interpretation:** Small businesses with moderate credit scores are high-risk.
+
+Cluster 1 (Medium Fraud) 
+-   High revenue (~$2M), slightly better credit scores (600), longer loan terms (98 months).
+**Interpretation:** More established businesses but still some fraudulent cases.
+
+Cluster 2 (Lowest Fraud) 
+-   Very low credit scores (288) but extremely high outstanding loans (90).
+**Interpretation:** Businesses with poor credit but likely highly scrutinized, leading to lower fraud.
+
+Cluster 3 (Medium Fraud) 
+-   Moderate revenue (~$920K), normal credit scores (600), moderate loans (5.71).
+**Interpretation:** Similar to Cluster 0 but with higher revenues.
 
 ### Train/Test Split: 
 Split the data into Train and test by using 80/20 combination. 80% - train data and 20% - test data and dropping the target variable from the data frame. We use all the columns int/float except the dropped ones
