@@ -257,7 +257,7 @@ Ran Models like LogisticRegression, DecisionTreeClassifier, KNN, SVM
 
 The best model for detecting fraud in loan applications is the **XGBoost Classifier**, with an **accuracy of 0.9237, recall of 0.8439, and F1-score of 0.81992**. It balances precision and recall effectively, making it the most reliable.
 **Random Forest (Tuned) and Boosted Random Forest** show perfect training performance but **overfit, leading to lower generalization**. **Logistic Regression and KNN** struggle with recall, making them **less effective in detecting fraud**.
-**XGBoost is the best choice**, offering strong performance without overfitting. Further improvements can be made by adjusting classification thresholds based on business risk to enhance fraud detection. As well as using ensemble technique like stacking can be used to improve the metrics. 
+**XGBoost is the best choice**, offering strong performance without overfitting. Further improvements can be made by adjusting classification thresholds using ROC or bayes optimal based on business risk to enhance fraud detection. As well as using ensemble technique like stacking can be used to improve the metrics. 
 
 ### Results and conclusion:
 
