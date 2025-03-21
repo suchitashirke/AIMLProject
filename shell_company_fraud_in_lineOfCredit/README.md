@@ -240,15 +240,14 @@ Ran Models like LogisticRegression, DecisionTreeClassifier, KNN, SVM
 ### Key Observations
    1.	**XGBoost** is the best performing model with accuracy around **92.37%, low precision 90.9% ( Low false positive), Recall around 84.39%** Strong ability to detect true positives. And **F1-score of 81.99%** best balance between recall 
       and precision. Considering the imbalance of class XGBoost is performs best. We should focus on using XGBoost as our primary model for making decision whether to approve the line of credit loan for small businesses. XGBoost also               performed well in consideration of **execution time – 78 seconds**
-   2.	**Random Forest (Tuned), Boosted RF, and Stacking RF show 100% train accuracy**, but **lower test accuracy, suggesting overfitting.** Training accuracy shows that model memorize training data but don’t generalize the unseen data as in        both cases the test accuracy is less than 90%. If this model used, it might give us certain overconfidence that may lead to risky decision like approving fraudulent loans by shell companies.
+   2.	**Random Forest (Tuned), Boosted RF, and Stacking RF show 100% train accuracy**, but **lower test accuracy, suggesting overfitting.** Training accuracy shows that model memorize training data but don’t generalize the unseen data as in        both cases the test accuracy is less than 90%. If we this model used, it may lead to risky decision like approving fraudulent loans by shell companies.
    3.	**SVM (Tuned) has the lowest accuracy (77.05%)**, making it the weakest performer.
    4.	**Logistics Regression** - Logistic Regression has the **lowest recall (0.21)**, indicating it misses many fraudulent cases. 
    5.	Both **SVM and logistics Regression** has **lower F1-score** making them less effective. 
    6.	Considering the execution **SVM is slowest of all 589 seconds**, making it impractical for real time line of credit application evaluation.
 
 **Plot for Overall Model(Tuned) Metrics***
-![image](https://github.com/user-attachments/assets/c466ee1e-e6a0-4979-a8bb-5460149875fd)
-
+![image](https://github.com/user-attachments/assets/72c2eb04-67b6-473d-819c-b30032e5b7f5)
 
 **Plots for feature importance in logistic Regression and XGBoost**
 ![image](https://github.com/user-attachments/assets/ec450136-1666-400c-ae5d-cc596316a421)
